@@ -1,0 +1,27 @@
+﻿<form>
+
+<div class="card">
+
+    <h1 class="card-title">Create article</h1>
+</div>
+<div class="card-body">
+    <div class="form-group">
+            <input type="text" name="Title" placeholder="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+            <input type="text" name="Content" placeholder="Content" class="form-control" />
+    </div>
+    <div class="form-group">
+            <input type="text" name="PhotoUrl" placeholder="PhotoUrl" class="form-control" />
+    </div>
+    <div class="form-group">
+            <select class="form-control" name="tagIds" asp-items="@ViewBag.Tags" multiple></select>
+    </div>
+        <div class="form-group">
+            <select class="form-control" name="categoryId" asp-items="@ViewBag.Categories"></select>
+        </div>
+    <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Create" />
+    </div>
+</div>
+</form>

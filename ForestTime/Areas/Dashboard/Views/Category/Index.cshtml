@@ -1,0 +1,10 @@
+﻿@model List<Category>
+
+    <div>
+        <a href="/dashboard/category/create" class="btn btn-success">Create Category</a>
+    </div>
+
+    @foreach(var cat in Model)
+    {
+        <p>@cat.CategoryName</p>
+    }

@@ -6,5 +6,7 @@ namespace ForestTime.ViewModels
     {
         public List<Article> HomeArticles { get; set; }
         public List<Tag> HomeTags { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<ArticleTag> ArticleTags { get; set; }
     }
 }

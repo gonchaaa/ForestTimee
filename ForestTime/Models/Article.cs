@@ -1,4 +1,6 @@
-﻿namespace ForestTime.Models
+﻿using System.Security.Principal;
+
+namespace ForestTime.Models
 {
     public class Article : BaseEntity
     {
@@ -9,5 +11,7 @@
         public User User { get; set; }
         public int Views { get; set; }
         public string SeoUrl { get; set; }
+        public int CategoryId { get; set; }
+        public Category category { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using ForestTime.Models;
 using ForestTime.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace ForestTime.Controllers
@@ -19,13 +20,15 @@ namespace ForestTime.Controllers
 
         public IActionResult Index()
         {
-            var articles=_context.Articles.ToList();
+            var articles=_context.Articles.Include(x=>x.User).ToList();
             var tags=_context.Tags.ToList();
+            var categories=_context.Categories.ToList();
             HomeVM vm = new()
             {
                 HomeArticles=articles,
-                HomeTags=tags
-            };
+                HomeTags=tags,
+                Categories=categories
+            }; 
             
             return View(vm);
         }

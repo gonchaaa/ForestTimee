@@ -7,43 +7,40 @@ namespace ForestTime.Areas.Dashboard.Controllers
 {
     [Area("Dashboard")]
     [Authorize]
-    public class TagController : Controller
+    public class CategoryController : Controller
     {
-
         private readonly AppDbContext _context;
 
-        public TagController(AppDbContext context)
+        public CategoryController(AppDbContext context)
         {
             _context = context;
         }
 
         public IActionResult Index()
         {
-            var tags=_context.Tags.ToList();
-            return View(tags);
-        }   
+            var categories=_context.Categories.ToList();
+            return View(categories);
+        }    
         public IActionResult Create()
         {
             return View();
         }
-
         [HttpPost]
-        public IActionResult Create(Tag tag)
+        public IActionResult Create(Category category)
         {
             try
             {
-
-            tag.CreatedDate = DateTime.Now;
-            tag.UpdatedDate = DateTime.Now;
-            _context.Tags.Add(tag);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+                category.CreatedDate = DateTime.Now;
+                category.UpdatedDate = DateTime.Now;
+                _context.Categories.Add(category);
+                _context.SaveChanges();
+                return RedirectToAction("Index");       
             }
             catch (Exception ex)
             {
 
-             return View("Create");
-            }
+                return View("Index");
+            };
         }
     }
 }
